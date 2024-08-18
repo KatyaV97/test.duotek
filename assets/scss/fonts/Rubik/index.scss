@@ -1,0 +1,9 @@
+$Rubik-Regular: '$RubikRegular';
+
+@font-face {
+  font-family: $Rubik-Regular;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("@/assets/scss/fonts/Rubik/$RubikRegular.ttf");
+}
