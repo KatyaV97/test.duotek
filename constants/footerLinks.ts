@@ -95,7 +95,7 @@ export const FOOTER_LINKS = [
             {
                 name: 'Рейтинги',
                 url: '#',
-                isButton: true
+                isButton: false
             },
             {
                 name: 'По отраслям',
@@ -135,7 +135,7 @@ export const FOOTER_LINKS = [
             {
                 name: 'Автоматизация сантехников',
                 url: '#',
-                isButton: true
+                isButton: false
             },
             {
                 name: 'Автоматизация клининга',

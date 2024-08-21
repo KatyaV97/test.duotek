@@ -1,96 +1,95 @@
 <template>
   <header id="header">
-    <div class="top-content">
-      <div class="left-side">
-        <NuxtLink
-            to="#"
-        >
+    <ul class="top-content">
+      <NuxtLink
+          to="#"
+      >
+        <li>
           <nuxt-img
               src="/logo-main.svg"
               class="logo"
               alt="logo"
           />
-        </NuxtLink>
-      </div>
+        </li>
+      </NuxtLink>
       <div class="center">
-        <ul class="center-ul">
-          <NuxtLink
-              to="#"
-          >
-            <li
-                :class="{
-                  '_active' : activeTab === 0
-                }"
-                class="menu-item"
-            >
-              Тендеры
-            </li>
-          </NuxtLink>
-          <NuxtLink
-              to="#"
-          >
-            <li
-                :class="{
-                  '_active' : activeTab === 0
-                }"
-                class="menu-item"
-            >
-              Компании
-            </li>
-          </NuxtLink>
-          <NuxtLink
-              to="#"
-          >
-            <li
-                :class="{
-                  '_active' : activeTab === 0
-                }"
-                class="menu-item"
-            >
-              Продукты
-            </li>
-          </NuxtLink>
-          <NuxtLink
-              to="#"
-          >
-            <li
-                :class="{
-                  '_active' : activeTab === 0
-                }"
-                class="menu-item"
-            >
-              Кейсы
-            </li>
-          </NuxtLink>
-          <NuxtLink
-              to="#"
-          >
-            <li
-                :class="{
-                  '_active' : activeTab === 0
-                }"
-                class="menu-item"
-            >
-              Блог
-            </li>
-          </NuxtLink>
-        </ul>
-      </div>
-      <div class="right-side">
         <NuxtLink
             to="#"
         >
-          Вход и регистрация
+          <li
+              :class="{
+                  '_active' : activeTab === 0
+              }"
+              class="menu-item"
+          >
+            Тендеры
+          </li>
+        </NuxtLink>
+        <NuxtLink
+            to="#"
+        >
+          <li
+              :class="{
+                  '_active' : activeTab === 1
+                }"
+              class="menu-item"
+          >
+            Компании
+          </li>
+        </NuxtLink>
+        <NuxtLink
+            to="#"
+        >
+          <li
+              :class="{
+                  '_active' : activeTab === 2
+                }"
+              class="menu-item"
+          >
+            Продукты
+          </li>
+        </NuxtLink>
+        <NuxtLink
+            to="#"
+        >
+          <li
+              :class="{
+                  '_active' : activeTab === 3
+                }"
+              class="menu-item"
+          >
+            Кейсы
+          </li>
+        </NuxtLink>
+        <NuxtLink
+            to="#"
+        >
+          <li
+              :class="{
+                  '_active' : activeTab === 4
+                }"
+              class="menu-item"
+          >
+            Блог
+          </li>
         </NuxtLink>
       </div>
-    </div>
+      <NuxtLink
+          to="#"
+      >
+        <li class="menu-item">
+          Вход и регистрация
+        </li>
+      </NuxtLink>
+    </ul>
+    <div class="line"/>
   </header>
 </template>
 
 <script lang="ts">
 export default {
   name: "Header",
-  props:{
+  props: {
     activeTab: {
       type: Number,
       default: 99
