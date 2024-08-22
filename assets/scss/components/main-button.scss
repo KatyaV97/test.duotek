@@ -19,4 +19,8 @@
     background: $pink;
     color: $background-white;
   }
+
+  &._high {
+    height: 40px;
+  }
 }

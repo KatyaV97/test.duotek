@@ -2,7 +2,8 @@
   <button
       :class="{
           '_dark-blue': classes.includes('dark-blue'),
-          '_pink': classes.includes('pink')
+          '_pink': classes.includes('pink'),
+          '_high': classes.includes('high')
       }"
       class="main-btn"
   >

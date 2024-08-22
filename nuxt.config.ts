@@ -3,11 +3,15 @@ import {defineNuxtConfig} from 'nuxt/config'
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-
+  ssr: true,
   devtools: {
     enabled: true
   },
-
+  runtimeConfig: {
+    public: {
+      duotekHost: process.env.NUXT_PUBLIC_DUOTEK_HOST,
+    }
+  },
   app: {
     head: {
       htmlAttrs: {

@@ -1,5 +1,16 @@
 .header-top-block {
   @include direction-column;
   gap: 32px;
+
+  .search-block {
+    @include align-items-center;
+    width: 100%;
+  }
+
+  .companies-block {
+    @include direction-column;
+    gap: 4px;
+    width: 100%;
+  }
 }
 

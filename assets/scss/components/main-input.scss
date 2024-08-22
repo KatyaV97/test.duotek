@@ -1,0 +1,21 @@
+.input-body {
+  @include align-items-center;
+  gap: 8px;
+  border: 1px solid $gray-90;
+  border-radius: 4px 0 0 4px;
+  padding: 0 8px;
+  height: 40px;
+  width: 100%;
+
+  .main-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    @include default-text;
+    @include raleway-medium-text;
+  }
+
+  input {
+    padding: 0;
+  }
+}
