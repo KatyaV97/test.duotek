@@ -7,6 +7,7 @@
 
   <Header
       :active-tab="-1"
+      :is-dark-theme="true"
   />
 
   <Alert

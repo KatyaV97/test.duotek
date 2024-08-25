@@ -15,6 +15,7 @@
   @include direction-column;
   gap: 20px;
   margin-bottom: 100px;
+  padding-left: 36px;
 
   .title {
     @include raleway-semi-bold-text;

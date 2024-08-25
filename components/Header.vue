@@ -1,11 +1,21 @@
 <template>
-  <header id="header">
+  <header
+      :class="{'_dark': isDarkTheme}"
+      id="header"
+  >
     <ul class="top-content">
       <NuxtLink
           to="/"
       >
         <li>
           <nuxt-img
+              v-if="isDarkTheme"
+              src="/logo-main-for-dark.svg"
+              class="logo"
+              alt="logo"
+          />
+          <nuxt-img
+              v-else
               src="/logo-main.svg"
               class="logo"
               alt="logo"
@@ -93,6 +103,10 @@ export default {
     activeTab: {
       type: Number,
       default: 99
+    },
+    isDarkTheme: {
+      type: Boolean,
+      default: false
     }
   }
 }

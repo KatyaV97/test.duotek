@@ -3,6 +3,16 @@ header {
   align-items: center;
   width: 100%;
 
+  &._dark {
+    background: $base-blue;
+
+    .top-content{
+      .menu-item{
+        color: $background-white;
+      }
+    }
+  }
+
   .top-content {
     @include space-between;
     max-width: 1200px;
