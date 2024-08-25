@@ -1,0 +1,49 @@
+footer {
+  @include direction-column;
+  align-items: center;
+  width: 100%;
+
+  .bottom-content {
+    @include direction-column;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 80px 36px;
+    box-sizing: border-box;
+
+    .services-content {
+      display: flex;
+      justify-content: space-between;
+
+      .column-content {
+        @include direction-column;
+        gap: 16px;
+
+        .title {
+          @include default-text;
+          @include rubik-regular-text;
+        }
+
+        .footer-item {
+          @include default-small-text;
+          color: $dark-gray;
+        }
+      }
+    }
+
+    .external-links {
+      @include space-between;
+
+      .left,
+      .right {
+        @include align-items-center;
+        gap: 20px;
+
+        .footer-link {
+          @include default-footnote;
+          color: $light-gray;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.paginate-container {
+  @include justify-content-center;
+  padding: 40px 0;
+
+  .pagination {
+    .page-item {
+      cursor: pointer;
+
+      &:first-child,
+      &:last-child {
+        display: none;
+      }
+
+      .page-link {
+        @include align-items-center;
+        justify-content: center;
+        @include default-text;
+        @include rubik-regular-text;
+        width: 40px;
+        height: 40px;
+        background-color: $background-white;
+        color: $base-blue;
+        border: none;
+
+        &:focus,
+        &:active {
+          border: none;
+          box-shadow: none;
+        }
+      }
+
+      &.active {
+        cursor: default;
+
+        .page-link {
+          background-color: $gray-97;
+          border-color: $gray-97;
+          color: $light-gray
+        }
+      }
+    }
+  }
+}

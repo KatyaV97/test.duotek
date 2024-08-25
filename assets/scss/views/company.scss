@@ -1,0 +1,109 @@
+.breadcrumb-container {
+  @include align-items-center;
+  gap: 10px;
+  cursor: pointer;
+  height: 24px;
+
+  p {
+    @include rubik-regular-text;
+    @include default-small-text;
+    color: $base-blue;
+  }
+}
+
+.company-container {
+  @include direction-column;
+  gap: 20px;
+  margin-bottom: 100px;
+  padding-left: 36px;
+
+  .title {
+    @include raleway-semi-bold-text;
+    @include default-h1;
+  }
+
+  .numbers-block {
+    @include align-items-center;
+    gap: 20px;
+
+    .content {
+      display: flex;
+      align-items: flex-start;
+      gap: 4px;
+
+      .number {
+        color: $pink;
+        @include rubik-regular-text;
+        @include mega-text;
+        font-weight: 300;
+      }
+
+      .text {
+        color: $dark-gray;
+        @include rubik-regular-text;
+        @include default-text;
+        padding-top: 4px;
+      }
+    }
+  }
+
+  .main-content-block {
+    @include direction-column;
+    gap: 40px;
+
+    .part-content {
+      @include direction-column;
+      gap: 20px;
+
+      .short-info,
+      .full-info {
+        @include rubik-regular-text;
+      }
+
+      .short-info {
+        @include title-text;
+      }
+
+      .full-info {
+        @include default-small-text;
+      }
+    }
+  }
+}
+
+.contact-info-block {
+  @include direction-column;
+  gap: 10px;
+  width: 100%;
+
+  .logo-company {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+  }
+
+  .info {
+    @include direction-column;
+    gap: 4px;
+
+    .title,
+    .text,
+    .link {
+      @include rubik-regular-text;
+      @include default-small-text;
+    }
+
+    .title {
+      color: $light-gray;
+    }
+
+    .link {
+      color: $base-blue;
+    }
+
+    .text {
+      color: $dark-gray
+    }
+  }
+}
+

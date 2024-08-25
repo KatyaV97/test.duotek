@@ -1,0 +1,88 @@
+.dropdown-container {
+  @include direction-column;
+  gap: 14px;
+  position: relative;
+
+  .title {
+    @include rubik-regular-text;
+    @include default-text;
+  }
+
+  .main-dropdown {
+    @include align-items-center;
+    justify-content: space-between;
+    gap: 6px;
+    min-height: 42px;
+    height: fit-content;
+    width: 100%;
+    padding: 0 16px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: $background-white;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .value {
+      width: 100%;
+      @include default-small-text;
+      @include rubik-regular-text;
+    }
+
+    .clear-ico {
+      @include align-items-center;
+      min-width: 10px;
+      height: 100%;
+    }
+
+    .stroke {
+      min-width: 24px;
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+      transition: transform .5s;
+
+      &._open {
+        transition: transform .5s;
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .options-block {
+    display: none;
+    position: absolute;
+    top: 82px;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: $background-white;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    padding: 1px 2px;
+    box-sizing: border-box;
+
+    &._show {
+      @include direction-column;
+      max-height: 200px;
+      overflow: auto;
+    }
+
+    .option {
+      padding: 8px 16px;
+      border-radius: 8px;
+      @include rubik-regular-text;
+      @include default-small-text;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $gray-97
+      }
+
+      &._active {
+        background-color: $gray-90;
+      }
+    }
+  }
+}

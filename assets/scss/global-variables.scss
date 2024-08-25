@@ -1,0 +1,75 @@
+/* Default text Mixins */
+
+@mixin rubik-regular-text {
+  font-weight: 400;
+  font-family: $Rubik-Regular, sans-serif;
+}
+
+@mixin raleway-medium-text {
+  font-weight: 500;
+  font-family: $Raleway-Medium, sans-serif;
+}
+
+@mixin raleway-semi-bold-text {
+  font-weight: 600;
+  font-family: $Raleway-SemiBold, sans-serif;
+}
+
+@mixin default-h1 {
+  font-size: 36px;
+  line-height: 46.8px;
+  @include raleway-semi-bold-text;
+}
+
+@mixin default-h3 {
+  font-size: 24px;
+  line-height: 24px;
+  @include rubik-regular-text;
+}
+
+@mixin mega-text {
+  font-size: 60px;
+  line-height: 66px;
+}
+
+@mixin title-text {
+  font-size: 18px;
+  line-height: 22.4px;
+}
+
+@mixin default-text {
+  font-size: 16px;
+  line-height: 22.4px;
+}
+
+@mixin default-small-text {
+  font-size: 14px;
+  line-height: 22.4px;
+}
+
+@mixin default-footnote {
+  font-size: 12px;
+  line-height: 22.4px;
+}
+
+/* Flex Mixins */
+
+@mixin align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin justify-content-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin space-between {
+  justify-content: space-between;
+  @include align-items-center;
+}
+
+@mixin direction-column {
+  display: flex;
+  flex-direction: column;
+}

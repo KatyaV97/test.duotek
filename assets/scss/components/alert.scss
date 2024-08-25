@@ -1,0 +1,49 @@
+.universal-alert {
+  position: fixed;
+  top: 64px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0);
+  z-index: 10;
+  max-width: 600px;
+  gap: 8px;
+  background: $pink;
+  @include justify-content-center;
+  border-radius: 16px;
+  color: $background-white;
+  box-shadow: 0 6px 32px 0 rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  cursor: default;
+
+  &._hidden {
+    display: none;
+    pointer-events: none;
+  }
+
+  &._show {
+    @include justify-content-center;
+    align-items: center;
+    animation: down-alerts-off 0.6s ease-in-out;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+  }
+
+  .alert-action {
+    @include direction-column;
+    align-items: flex-start;
+    align-self: stretch;
+    padding: 0 12px
+  }
+
+  .alert-close {
+    @include direction-column;
+    align-items: flex-start;
+    align-self: stretch;
+    cursor: pointer;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

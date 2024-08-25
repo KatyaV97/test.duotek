@@ -1,0 +1,14 @@
+.wrapper-container {
+  @include direction-column;
+  align-items: center;
+  width: 100%;
+
+  .wrapper {
+    display: flex;
+    gap: 110px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 50px 36px 0 0;
+    box-sizing: border-box;
+  }
+}

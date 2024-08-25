@@ -1,0 +1,26 @@
+.main-btn {
+  @include align-items-center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  width: fit-content;
+  height: 32px;
+  border-radius: 4px;
+  @include default-small-text;
+  padding: 0 16px;
+  cursor: pointer;
+
+  &._dark-blue {
+    background: $base-blue;
+    color: $background-white;
+  }
+
+  &._pink {
+    background: $pink;
+    color: $background-white;
+  }
+
+  &._high {
+    height: 40px;
+  }
+}
