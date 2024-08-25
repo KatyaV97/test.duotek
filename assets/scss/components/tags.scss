@@ -1,0 +1,20 @@
+.company-tags {
+  @include align-items-center;
+  gap: 4px;
+  flex-wrap: wrap;
+
+  .tag-block {
+    @include align-items-center;
+    justify-content: center;
+    height: 32px;
+    width: fit-content;
+    border-radius: 200px;
+    background-color: $gray-97;
+    padding: 0 22px;
+
+    p {
+      @include rubik-regular-text;
+      @include default-small-text;
+    }
+  }
+}

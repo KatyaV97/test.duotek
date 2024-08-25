@@ -70,11 +70,12 @@
 
 <script lang="ts">
 import {FOOTER_LINKS} from "~/constants/footerLinks"
+import type {Link} from "~/types/link"
 
 export default {
   name: "Footer",
   methods: {
-    getFooterLinks() {
+    getFooterLinks(): Link[] {
       return FOOTER_LINKS
     }
   }

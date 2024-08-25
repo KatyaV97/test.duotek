@@ -39,7 +39,7 @@ footer {
         @include align-items-center;
         gap: 20px;
 
-        .footer-link{
+        .footer-link {
           @include default-footnote;
           color: $light-gray;
         }

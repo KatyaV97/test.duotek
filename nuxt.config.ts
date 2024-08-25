@@ -3,7 +3,7 @@ import {defineNuxtConfig} from 'nuxt/config'
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-  ssr: true,
+  ssr: false,
   devtools: {
     enabled: true
   },
@@ -34,6 +34,7 @@ export default defineNuxtConfig({
   },
 
   css: [
+    '~/node_modules/bootstrap/dist/css/bootstrap.min.css',
     '@/assets/scss/theme-duotek.scss'
   ],
 

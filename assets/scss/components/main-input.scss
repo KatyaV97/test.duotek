@@ -3,9 +3,16 @@
   gap: 8px;
   border: 1px solid $gray-90;
   border-radius: 4px 0 0 4px;
-  padding: 0 8px;
+  padding: 0 16px 0 8px;
   height: 40px;
   width: 100%;
+
+  .clear-ico {
+    @include align-items-center;
+    width: 10px;
+    height: 100%;
+    cursor: pointer;
+  }
 
   .main-input {
     border: none;

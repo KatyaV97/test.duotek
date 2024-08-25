@@ -1,0 +1,75 @@
+.company-card-container {
+  display: flex;
+  align-items: flex-start;
+  border-radius: 8px;
+  height: 200px;
+  width: 100%;
+  gap: 40px;
+  padding: 36px;
+  box-sizing: border-box;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+    background: #03095308;
+    transition: transform .5s, background .3s ease-in-out;
+    transform: scale(1.05);
+
+    .arrow {
+      display: block;
+      transition: all .3s ease-in-out;
+    }
+
+    .content-info {
+      .title {
+        color: $pink;
+        transition: all .3s ease-in-out;
+      }
+    }
+
+    .tag-block {
+      background-color: $background-white;
+      transition: all .3s ease-in-out;
+    }
+  }
+
+  .img-block {
+    max-width: 135px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+
+    img {
+      width: 100%;
+      height: fit-content;
+      object-fit: contain;
+    }
+  }
+
+  .content-info {
+    @include direction-column;
+    gap: 16px;
+
+    .title {
+      @include default-h3;
+      color: $base-blue;
+    }
+
+    .description {
+      @include default-small-text;
+      @include rubik-regular-text;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  .arrow {
+    display: none;
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+  }
+}

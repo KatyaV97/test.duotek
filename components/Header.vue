@@ -2,7 +2,7 @@
   <header id="header">
     <ul class="top-content">
       <NuxtLink
-          to="#"
+          to="/"
       >
         <li>
           <nuxt-img
@@ -26,12 +26,12 @@
           </li>
         </NuxtLink>
         <NuxtLink
-            to="#"
+            to="companies"
         >
           <li
               :class="{
                   '_active' : activeTab === 1
-                }"
+              }"
               class="menu-item"
           >
             Компании

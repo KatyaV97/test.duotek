@@ -1,4 +1,6 @@
-export const FOOTER_LINKS = [
+import type {Link} from "~/types/link"
+
+export const FOOTER_LINKS: Link[] = [
     {
         title: 'Тендеры',
         links: [

@@ -10,10 +10,15 @@ import {
  * Получение информация о компании
  */
 export default defineEventHandler(async (event: H3Event<Request>) => {
+    const params = getQuery(event)
+    const companyId: string = params.companyId
+
     try {
-        return await $fetch(COMPANIES, {
-            method: 'GET'
-        })
+        if (companyId) {
+            return await $fetch(`${COMPANIES}info?id=${companyId}`, {
+                method: 'GET'
+            })
+        }
     } catch (exception) {
         return {
             error: true,

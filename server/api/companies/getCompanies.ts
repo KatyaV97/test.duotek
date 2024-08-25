@@ -11,12 +11,12 @@ import {
  */
 export default defineEventHandler(async (event: H3Event<Request>) => {
     const params = getQuery(event)
+    const searchParams = new URLSearchParams(params);
+
     try {
-        if(params?.specializations && params?.industries && params?.search){
-            return await $fetch(`${COMPANIES}?specializations=${params.specializations}&industries=${params.industries}&search=${params.search}`, {
-                method: 'GET'
-            })
-        }
+        return await $fetch(`${COMPANIES}?per_page=5&${searchParams}`, {
+            method: 'GET'
+        })
     } catch (exception) {
         return {
             error: true,

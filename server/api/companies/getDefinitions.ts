@@ -11,7 +11,6 @@ import {
  */
 export default defineEventHandler(async (event: H3Event<Request>) => {
     try {
-        console.log(DEFINITIONS)
         return await $fetch(DEFINITIONS, {
             method: 'GET'
         })
