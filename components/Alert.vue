@@ -1,45 +1,57 @@
 <template>
   <div
-      class="alert _hidden"
+      class="universal-alert _hidden"
       @mouseenter="onFocus"
       @mouseleave="onBlur"
       :class="
         {
-          '_done' : !show && value && value.length > 0,
-          '_show' : show
+          '_show' : isShow,
+          '_done' : !isShow && value && value.length > 0
         }"
   >
-    <div class="done">
-      <svg xmlns="http://www.w3.org/2000/svg"
-           width="20"
-           height="20"
-           viewBox="0 0 20 20"
-           fill="none">
-        <path fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0
-              4.47715 0 10C0 15.5228 4.47715 20 10 20ZM15.669 7.74325C16.0795 7.37376
-              16.1127 6.74147 15.7432 6.33098C15.3738 5.9205 14.7415 5.88726 14.331
-              6.25675L8.33413 11.6547L5.66886 9.25661C5.2583 8.88721 4.62601 8.92058
-              4.25661 9.33114C3.88721 9.7417 3.92058 10.374 4.33114 10.7434L7.66541
-              13.7434C8.04574 14.0856 8.62302 14.0855 9.00329 13.7432L15.669 7.74325Z"
-              fill="#45B80B"/>
+    <div class="alert-message">
+      {{ value }}
+    </div>
+    <div
+        class="alert-close"
+        @click="closeAlert"
+    >
+      <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+      >
+        <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237
+            6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834
+            4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342
+            19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071
+            17.2929C19.0976 17.6834 19.0976 18.3166 18.7071
+            18.7071C18.3166 19.0976 17.6834 19.0976 17.2929
+            18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976
+            5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237
+            17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237
+            6.31658 4.90237 5.68342 5.29289 5.29289Z"
+            fill="white"
+        />
       </svg>
     </div>
-    <p class="_non-space">
-      {{ value }}
-    </p>
   </div>
 </template>
 
 <script lang="ts">
 export default {
   name: "Alert",
-  emits: ['focus'],
+  emits: ['closeAlert'],
   props: {
-    show: {
+    isError: {
       type: Boolean,
-      default: false
+      default: false,
+      required: true
     },
     value: {
       type: String,
@@ -48,15 +60,51 @@ export default {
   },
   data() {
     return {
+      isShow: false,
+      time: 60000,
       focus: false as boolean
     }
   },
   methods: {
     onFocus(): void {
-      this.$emit('focus', this.focus = true)
+      this.focus = true
     },
     onBlur(): void {
-      this.$emit('focus', this.focus = false)
+      this.focus = false
+    },
+    closeAlert(): void {
+      this.isShow = false
+      setTimeout(() => {
+        this.$emit('closeAlert', false)
+      }, 600)
+    },
+    closeByTime(): void {
+      setTimeout(() => {
+        this.closeAlert()
+      }, this.time)
+    },
+    showAlert(): void {
+      this.isShow = true
+      this.closeByTime()
+    }
+  },
+  watch: {
+    isError: {
+      handler(newVal: boolean, oldVal: boolean): void {
+        if (newVal) {
+          this.showAlert()
+        }
+      }
+    },
+    focus() {
+      if (this.focus) {
+        this.time += 2000
+      }
+    }
+  },
+  mounted() {
+    if (this.isError) {
+      this.showAlert()
     }
   }
 }

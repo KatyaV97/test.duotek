@@ -10,9 +10,9 @@
   />
 
   <Alert
-      :show="alert.show"
-      :value="alert.text"
-      @focus="alert.focus = true"
+      :isError="errorAlert.show"
+      :value="errorAlert.text"
+      @close-alert="toggleErrorAlert($event,'','')"
   />
 
   <WrapperContainer>
