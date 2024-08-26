@@ -26,3 +26,18 @@
     padding: 0;
   }
 }
+
+@media only screen and (max-width: 575px) {
+  .input-body {
+    height: 36px;
+
+    img {
+      height: 16px;
+      width: 16px;
+    }
+
+    .main-input {
+      @include mobile-small-text;
+    }
+  }
+}

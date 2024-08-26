@@ -47,25 +47,36 @@
     }
   }
 
-  .main-content-block {
-    @include direction-column;
-    gap: 40px;
+  .center-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
 
-    .part-content {
+    .main-content-block {
       @include direction-column;
       gap: 20px;
 
-      .short-info,
-      .full-info {
-        @include rubik-regular-text;
-      }
+      .bottom-content {
+        @include direction-column;
+        gap: 40px;
 
-      .short-info {
-        @include title-text;
-      }
+        .part-content {
+          @include direction-column;
+          gap: 20px;
 
-      .full-info {
-        @include default-small-text;
+          .short-info,
+          .full-info {
+            @include rubik-regular-text;
+          }
+
+          .short-info {
+            @include title-text;
+          }
+
+          .full-info {
+            @include default-small-text;
+          }
+        }
       }
     }
   }
@@ -74,7 +85,6 @@
 .contact-info-block {
   @include direction-column;
   gap: 10px;
-  width: 100%;
 
   .logo-company {
     width: 120px;
@@ -107,3 +117,76 @@
   }
 }
 
+@media only screen and (max-width: 1280px) {
+  .company-container {
+    .center-container {
+      flex-direction: column-reverse;
+      gap: 32px;
+    }
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .company-container {
+    padding: 0;
+    margin-bottom: 0;
+
+    .title {
+      @include mobile-h1;
+    }
+
+    .numbers-block {
+      .content {
+        .number {
+          @include rubik-regular-text;
+          @include mobile-mega-text;
+        }
+
+        .text {
+          @include mobile-default-text;
+        }
+      }
+    }
+
+    .center-container {
+      gap: 16px;
+
+      .main-content-block {
+        gap: 16px;
+
+        .bottom-content {
+          gap: 20px;
+
+          .part-content {
+            @include direction-column;
+            gap: 20px;
+
+            .short-info {
+              @include mobile-title-text;
+            }
+
+            .full-info {
+              @include mobile-default-text;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .contact-info-block {
+    .logo-company {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .info {
+      .title,
+      .text,
+      .link {
+        @include mobile-small-text;
+      }
+    }
+  }
+}

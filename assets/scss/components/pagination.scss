@@ -41,3 +41,23 @@
     }
   }
 }
+
+@media only screen and (max-width: 980px) {
+  .paginate-container {
+    padding-top: 0;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .paginate-container {
+    .pagination {
+      .page-item {
+        .page-link {
+          width: 28px;
+          height: 28px;
+          @include mobile-small-text;
+        }
+      }
+    }
+  }
+}

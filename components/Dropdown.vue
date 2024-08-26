@@ -1,16 +1,16 @@
 <template>
-  <div
-      v-click-outside="closeDropdown"
-      @click="toggleDropdown"
-      class="dropdown-container"
-  >
+  <div class="dropdown-container">
     <p
         v-if="title"
         class="title _non-space"
     >
       {{ title }}
     </p>
-    <div class="main-dropdown">
+    <div
+        v-click-outside="closeDropdown"
+        @click="toggleDropdown"
+        class="main-dropdown"
+    >
       <p class="value _non-space">
         {{ value }}
       </p>

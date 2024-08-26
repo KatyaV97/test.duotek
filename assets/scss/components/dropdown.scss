@@ -86,3 +86,33 @@
     }
   }
 }
+
+@media only screen and (max-width: 575px) {
+  .dropdown-container {
+    .title {
+      @include mobile-default-text;
+    }
+
+    .main-dropdown {
+      min-height: 36px;
+      padding: 0 12px;
+
+      .value {
+        @include mobile-small-text;
+      }
+
+      .stroke {
+        min-width: 18px;
+      }
+    }
+
+    .options-block {
+      top: 76px;
+
+      .option {
+        padding: 4px 8px;
+        @include mobile-small-text;
+      }
+    }
+  }
+}

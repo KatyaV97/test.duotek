@@ -34,3 +34,7 @@ ul {
   height: 1px;
   background-color: $gray
 }
+
+.ps__thumb-y, .ps__thumb-x, .ps__rail-x, .ps__rail-y {
+  visibility: hidden
+}

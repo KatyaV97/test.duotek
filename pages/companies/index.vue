@@ -18,7 +18,7 @@
   <WrapperContainer>
     <RightContentBlock>
       <div class="header-top-block">
-        <h1 class="_non-space">
+        <h1 class="title _non-space">
           {{ pageCommonInfo.title }}
         </h1>
         <div class="search-block">
@@ -58,6 +58,9 @@
       </div>
     </RightContentBlock>
     <LeftContentBlock>
+      <h1 class="tablet-title _non-space">
+        {{ pageCommonInfo.title }}
+      </h1>
       <FiltersBlock
           v-if="!isLoading"
           :initial-company-specialization-value="specialization"

@@ -24,3 +24,15 @@
     height: 40px;
   }
 }
+
+@media only screen and (max-width: 575px) {
+  .main-btn {
+    height: 28px;
+    padding: 0 12px;
+    @include mobile-small-text;
+
+    &._high {
+      height: 36px;
+    }
+  }
+}
