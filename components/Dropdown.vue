@@ -15,7 +15,7 @@
         {{ value }}
       </p>
       <div
-          v-if="!isShowOptions
+          v-if="!isOptionsShown
                 && !defaultValue"
           @click.stop.prevent="clearOption"
           class="clear-ico"
@@ -53,7 +53,7 @@
       </div>
       <svg
           :class="{
-            '_open': isShowOptions
+            '_open': isOptionsShown
           }"
           class="stroke"
           width="24"
@@ -69,7 +69,7 @@
     </div>
     <div
         :class="{
-          '_show': isShowOptions
+          '_show': isOptionsShown
         }"
         class="options-block"
     >
@@ -116,15 +116,15 @@ export default {
   emits: ['selectItem', 'clearOption'],
   data() {
     return {
-      isShowOptions: false as boolean
+      isOptionsShown: false as boolean
     }
   },
   methods: {
     toggleDropdown(): void {
-      this.isShowOptions = !this.isShowOptions
+      this.isOptionsShown = !this.isOptionsShown
     },
     closeDropdown(): void {
-      this.isShowOptions = false
+      this.isOptionsShown = false
     },
     selectOption(option: Option): void {
       this.$emit('selectItem', option)

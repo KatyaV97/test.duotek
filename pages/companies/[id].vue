@@ -11,7 +11,7 @@
   />
 
   <Alert
-      :isError="errorAlert.show"
+      :isError="errorAlert.isShown"
       :value="errorAlert.text"
       @close-alert="toggleErrorAlert($event,'','')"
   />
@@ -19,7 +19,7 @@
   <WrapperContainer>
     <RightContentBlock>
       <div
-          v-if="!loading"
+          v-if="!isLoading"
           class="company-container"
       >
         <NuxtLink
@@ -101,7 +101,7 @@
     </RightContentBlock>
     <LeftContentBlock>
       <div
-          v-if="!loading"
+          v-if="!isLoading"
           class="contact-info-block"
       >
         <img
@@ -161,7 +161,7 @@ export default {
   data() {
     return {
       pageTitle: 'Doutek. Главная' as string,
-      loading: true as boolean
+      isLoading: true as boolean
     }
   },
   async setup() {
@@ -207,7 +207,7 @@ export default {
     companyPending: {
       handler(newVal: Ref<boolean>): void {
         if (newVal || this.errorHandler(this.company)) return
-        this.loading = false
+        this.isLoading = false
       }
     }
   }

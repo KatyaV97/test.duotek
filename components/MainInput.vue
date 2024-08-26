@@ -67,8 +67,7 @@ export default {
   data() {
     return {
       title: '' as string,
-      data: '' as string,
-      focus: false as boolean,
+      data: '' as string
     }
   },
   methods: {

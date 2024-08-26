@@ -5,8 +5,8 @@
       @mouseleave="onBlur"
       :class="
         {
-          '_show' : isShow,
-          '_done' : !isShow && value && value.length > 0
+          '_show': isShown,
+          '_done': !isShown && value && value.length > 0
         }"
   >
     <div class="alert-message">
@@ -60,20 +60,20 @@ export default {
   },
   data() {
     return {
-      isShow: false,
+      isShown: false,
       time: 60000,
-      focus: false as boolean
+      isFocused: false as boolean
     }
   },
   methods: {
     onFocus(): void {
-      this.focus = true
+      this.isFocused = true
     },
     onBlur(): void {
-      this.focus = false
+      this.isFocused = false
     },
     closeAlert(): void {
-      this.isShow = false
+      this.isShown = false
       setTimeout(() => {
         this.$emit('closeAlert', false)
       }, 600)
@@ -84,7 +84,7 @@ export default {
       }, this.time)
     },
     showAlert(): void {
-      this.isShow = true
+      this.isShown = true
       this.closeByTime()
     }
   },
@@ -97,7 +97,7 @@ export default {
       }
     },
     focus() {
-      if (this.focus) {
+      if (this.isFocused) {
         this.time += 2000
       }
     }
