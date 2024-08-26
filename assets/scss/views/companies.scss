@@ -9,6 +9,10 @@
   }
 }
 
+.tablet-title {
+  display: none;
+}
+
 .companies-block {
   @include direction-column;
   gap: 4px;
@@ -26,5 +30,29 @@
     @include title-text;
     @include rubik-regular-text;
     color: $light-gray
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .header-top-block {
+    padding-left: 0;
+
+    .title {
+      display: none;
+    }
+  }
+
+  .tablet-title {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .companies-block {
+    gap: 16px;
+  }
+
+  .tablet-title {
+    @include mobile-h1;
   }
 }

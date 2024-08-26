@@ -52,6 +52,37 @@
   line-height: 22.4px;
 }
 
+@mixin mobile-h1 {
+  font-size: 24px;
+  line-height: 130%;
+  @include rubik-regular-text;
+}
+
+@mixin mobile-mega-text {
+  font-size: 40px;
+  line-height: 130%;
+}
+
+@mixin mobile-h3 {
+  font-size: 16px;
+  line-height: 130%;
+}
+
+@mixin mobile-title-text {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin mobile-default-text {
+  font-size: 14px;
+  line-height: 140%;
+}
+
+@mixin mobile-small-text {
+  font-size: 12px;
+  line-height: 130%;
+}
+
 /* Flex Mixins */
 
 @mixin align-items-center {

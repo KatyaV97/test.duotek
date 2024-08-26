@@ -10,7 +10,7 @@
   />
 
   <Alert
-      :isError="errorAlert.show"
+      :isError="errorAlert.isShown"
       :value="errorAlert.text"
       @close-alert="toggleErrorAlert($event,'','')"
   />
@@ -18,7 +18,7 @@
   <WrapperContainer>
     <RightContentBlock>
       <div class="header-top-block">
-        <h1 class="_non-space">
+        <h1 class="title _non-space">
           {{ pageCommonInfo.title }}
         </h1>
         <div class="search-block">
@@ -36,7 +36,7 @@
         </div>
       </div>
       <div
-          v-if="!loading
+          v-if="!isLoading
                   && companiesData.data
                   && companiesData.data?.data
                   && companiesData.data.data.length > 0"
@@ -49,7 +49,7 @@
         />
       </div>
       <div
-          v-else-if="!loading"
+          v-else-if="!isLoading"
           class="empty-block"
       >
         <p class="_non-space">
@@ -58,8 +58,11 @@
       </div>
     </RightContentBlock>
     <LeftContentBlock>
+      <h1 class="tablet-title _non-space">
+        {{ pageCommonInfo.title }}
+      </h1>
       <FiltersBlock
-          v-if="!loading"
+          v-if="!isLoading"
           :initial-company-specialization-value="specialization"
           :initial-industry-value="industry"
           @init-filter="initFilterParameter"
@@ -113,7 +116,7 @@ export default {
       industry: '' as string,
       page: '' as string,
       perPage: '' as string,
-      loading: true as boolean
+      isLoading: true as boolean
     }
   },
   methods: {
@@ -204,7 +207,7 @@ export default {
     'companiesData.pending': {
       handler(newVal: Ref<boolean>): void {
         if (newVal || this.errorHandler(this.companiesData.data)) return
-        this.loading = false
+        this.isLoading = false
       },
       deep: true
     }

@@ -22,7 +22,14 @@
           />
         </li>
       </NuxtLink>
-      <div class="center">
+        <perfect-scrollbar
+            :options="{
+                     wheelPropagation: false,
+                     suppressScrollY: true,
+                     useBothWheelAxes: true
+                  }"
+            class="center"
+        >
         <NuxtLink
             to="#"
         >
@@ -36,7 +43,7 @@
           </li>
         </NuxtLink>
         <NuxtLink
-            to="companies"
+            to="/companies"
         >
           <li
               :class="{
@@ -83,7 +90,7 @@
             Блог
           </li>
         </NuxtLink>
-      </div>
+      </perfect-scrollbar>
       <NuxtLink
           to="#"
       >
@@ -97,8 +104,14 @@
 </template>
 
 <script lang="ts">
+import {PerfectScrollbar} from 'vue3-perfect-scrollbar'
+import 'vue3-perfect-scrollbar/style.css'
+
 export default {
   name: "Header",
+  components: {
+    PerfectScrollbar
+  },
   props: {
     activeTab: {
       type: Number,

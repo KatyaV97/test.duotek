@@ -5,16 +5,16 @@ export default {
     data() {
         return {
             errorAlert: {
-                show: false,
+                isShown: false,
                 text: ''
             } as ErrorAlert,
             hasError: false as boolean,
         }
     },
     methods: {
-        toggleErrorAlert(show: boolean, text: string): void {
-            this.hasError = show
-            this.errorAlert.show = show
+        toggleErrorAlert(isShown: boolean, text: string): void {
+            this.hasError = isShown
+            this.errorAlert.isShown = isShown
             this.errorAlert.text = text
         },
         errorHandler(response: object): Promise<void | false>

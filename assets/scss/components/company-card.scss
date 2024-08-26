@@ -73,3 +73,38 @@
     bottom: 16px;
   }
 }
+
+@media only screen and (max-width: 1280px) {
+  .company-card-container {
+    padding-left: 0;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .company-card-container {
+    flex-direction: column;
+    height: 100%;
+    background: $gray-97;
+    border-radius: 20px;
+    padding: 24px;
+    gap: 24px;
+
+    .content-info {
+      gap: 12px;
+
+      .title {
+        @include mobile-h3;
+      }
+
+      .description {
+        @include mobile-small-text;
+      }
+    }
+
+    .company-tags {
+      .tag-block {
+        background: $background-white;
+      }
+    }
+  }
+}
