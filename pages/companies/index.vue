@@ -82,42 +82,43 @@
   <Footer/>
 </template>
 
-<script lang="ts">
-import Error from "~/mixins/error"
+<script setup lang="ts">
+import {ref, Ref, onMounted} from "vue"
+import Error from "@/mixins/error"
 import qs from "qs"
 import Paginate from "vuejs-paginate-next"
-import type {DataFetcher, FilterParameter} from "~/types/company"
+import type {DataFetcher, FilterParameter} from "@/types/company"
+import {useUrlParams} from "@/composables/useQueryParams"
 
+const {getQueryParams} = useUrlParams()
+const pageTitle = 'Doutek. Каталог компаний'
+const pageCommonInfo: {title: string} = {
+  title: 'Каталог компаний'
+}
+const search: {
+  value: string,
+  placeholder: string
+} = {
+  value: '',
+  placeholder: 'Поиск продукта или отрасли'
+}
+const companiesData: DataFetcher = {
+  data: null,
+  pending: true
+}
+let specialization = ref('')
+let industry = ref('')
+let page = ref('')
+
+onMounted(async ()=>{
+  const params = getQueryParams()
+  await this.initCompaniesDataFetch(params)
+})
+let isLoading = ref(true)
 export default {
   mixins: [Error],
   components: {
     Paginate
-  },
-  data() {
-    return {
-      pageTitle: 'Doutek. Каталог компаний' as string,
-      pageCommonInfo: {
-        title: 'Каталог компаний'
-      } as {
-        title: string
-      },
-      search: {
-        value: '',
-        placeholder: 'Поиск продукта или отрасли'
-      } as {
-        value: string,
-        placeholder: string
-      },
-      companiesData: {
-        data: null,
-        pending: true
-      } as DataFetcher,
-      specialization: '' as string,
-      industry: '' as string,
-      page: '' as string,
-      perPage: '' as string,
-      isLoading: true as boolean
-    }
   },
   methods: {
     initSearchValue(): void {
@@ -164,45 +165,6 @@ export default {
       this.companiesData.data = companies
       this.companiesData.pending = companiesPending
     },
-    async initParams(): Promise<void> {
-      let params = {}
-      if (this.$route.query?.specialization) {
-        params = {
-          specialization: this.$route.query?.specialization
-        }
-        this.specialization = this.$route.query?.specialization
-        console.log(this.specialization)
-      }
-      if (this.$route.query?.industry) {
-        params = {
-          ...params,
-          industry: this.$route.query?.industry
-        }
-        this.industry = this.$route.query?.industry
-      }
-      if (this.$route.query?.search) {
-        params = {
-          ...params,
-          search: this.$route.query?.search
-        }
-        this.search.value = this.$route.query?.search
-      }
-      if (this.$route.query?.page) {
-        params = {
-          ...params,
-          page: this.$route.query?.page
-        }
-      }
-      await this.initCompaniesDataFetch(params)
-    }
-  },
-  async mounted() {
-    if (!this.$route.query) {
-      await this.initCompaniesDataFetch({})
-      return
-    }
-    await this.initParams()
-  },
   watch: {
     'companiesData.pending': {
       handler(newVal: Ref<boolean>): void {

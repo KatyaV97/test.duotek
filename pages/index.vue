@@ -12,14 +12,8 @@
   <Footer/>
 </template>
 
-<script lang="ts">
-export default {
-  data() {
-    return {
-      pageTitle: 'Doutek. Главная' as string,
-    }
-  }
-}
+<script setup lang="ts">
+const pageTitle = 'Doutek. Главная'
 </script>
 
 <style scoped>
